@@ -1,0 +1,85 @@
+(Problem 4-2) Implementation of java.util.Iterator interface
+---------------------------------------------
+
+The class CardDeck implements the java.util.Iterator interface with the following methods.
+
+     boolean hasNext() // Returns true if there is an element to return at the current position
+     Object next() // Returns the element value at the current position and moves the current position to the next position.
+     void remove() // removes the last value returned by next() from the collection
+
+
+Implement three methods (hasNext(), next(), remove()) in the following template program.
+Complete so that the following execution result appears.
+
+(Template program) ---------------------------------------------- ------
+public class CardDeck implements java.util.Iterator {
+     private String[] cardNames = {
+          "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace "
+     };
+
+     private int current = 0;
+
+     public boolean hasNext() {
+        // (implementation location)
+     }
+
+     public Object next() {
+        // (implementation location)
+     }
+
+     public void remove() {
+        // (implementation location)
+     }
+}
+
+public class Practice4 {
+     public static void main(String[] args) {
+        ....
+        // (Problem 4-2)
+         System.out.println("\n---(Problem 4-2)---");
+         System.out.println("(First reading)");
+         CardDeck c = new CardDeck();
+         while (c.hasNext()) {
+         String s = (String)c.next();
+         if(s.equals("Jack")) c.remove();
+              System.out.println("Value returned by next():"+ s);
+         }
+         System.out.println("(Second reading)");
+         c = new CardDeck();
+         while (c.hasNext()) {
+             System.out.println("Value returned by next():"+ c.next());
+         }
+         ....
+     }
+
+}
+
+(Execution result) ---------------------------------------------- ------
+---(Problem 4-2)---
+(first reading)
+Next() returns: 2
+Next() returns: 3
+Next() returns: 4
+Next() returns: 5
+Next() returns: 6
+Next() returns: 7
+Next() returns: 8
+Next() returns: 9
+Next() returns: 10
+Value returned by next(): Jack
+Value returned by next(): Queen
+Value returned by next(): King
+Value returned by next(): Ace
+(second reading)
+Next() returns: 2
+Next() returns: 3
+Next() returns: 4
+Next() returns: 5
+Next() returns: 6
+Next() returns: 7
+Next() returns: 8
+Next() returns: 9
+Next() returns: 10
+Value returned by next(): Queen
+Value returned by next(): King
+Value returned by next(): Ace
